@@ -7,6 +7,7 @@ import { BrowserRouter, Switch, Redirect, Route } from "react-router-dom";
 import HomePage from "../HomePage";
 import AdminPage from "../AdminPage";
 import UserPage from "../UserPage";
+import GamePage from "../GamePage";
 import NotFoundPage from "../NotFoundPage";
 
 class Router extends Component {
@@ -19,11 +20,20 @@ class Router extends Component {
 
     return (
       <BrowserRouter basename={process.env.REACT_APP_BASENAME}>
-        {bar}
-
+        
         <Switch>
+          
           <Route path="/" exact>
             <HomePage user={user} openSnackbar={openSnackbar} />
+          </Route>
+
+          <Route path="/about" exact>          
+            About Page
+          </Route>
+
+          <Route path="/game" exact>
+            {bar}
+            {user ? <GamePage /> : <Redirect to="/" />}
           </Route>
 
           <Route path="/admin">
@@ -41,7 +51,9 @@ class Router extends Component {
           <Route>
             <NotFoundPage />
           </Route>
+
         </Switch>
+
       </BrowserRouter>
     );
   }

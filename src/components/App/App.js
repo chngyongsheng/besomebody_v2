@@ -12,7 +12,7 @@ import appearance from "../../services/appearance";
 
 import ErrorBoundary from "../ErrorBoundary";
 import LaunchScreen from "../LaunchScreen";
-import Bar from "../Bar";
+import Bar from "../SideBar";
 import Router from "../Router";
 import DialogHost from "../DialogHost";
 

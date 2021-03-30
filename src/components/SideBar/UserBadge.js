@@ -20,7 +20,7 @@ import {
 
 import UserAvatar from "../UserAvatar";
 
-class Bar extends Component {
+class UserBadge extends Component {
   constructor(props) {
     super(props);
 
@@ -85,20 +85,7 @@ class Bar extends Component {
     ];
 
     return (
-      <AppBar color="primary" position="static">
-        <Toolbar>
-          <Box display="flex" flexGrow={1}>
-            <Typography color="inherit" variant="h6">
-              <Link
-                color="inherit"
-                component={RouterLink}
-                to="/"
-                underline="none"
-              >
-                {process.env.REACT_APP_TITLE}
-              </Link>
-            </Typography>
-          </Box>
+      <>
 
           {user && (
             <>
@@ -190,17 +177,16 @@ class Bar extends Component {
               <Button onClick={onSignInClick}>Sign in</Button>
             </ButtonGroup>
           )}
-        </Toolbar>
-      </AppBar>
+       </>
     );
   }
 }
 
-Bar.defaultProps = {
+UserBadge.defaultProps = {
   performingAction: false,
 };
 
-Bar.propTypes = {
+UserBadge.propTypes = {
   // Properties
   performingAction: PropTypes.bool.isRequired,
   user: PropTypes.object,
@@ -212,4 +198,4 @@ Bar.propTypes = {
   onSignOutClick: PropTypes.func.isRequired,
 };
 
-export default Bar;
+export default UserBadge;
