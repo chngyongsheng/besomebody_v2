@@ -12,7 +12,7 @@ import appearance from "../../services/appearance";
 
 import ErrorBoundary from "../ErrorBoundary";
 import LaunchScreen from "../LaunchScreen";
-import UserBadge from "../SideBar";
+import Bar from "../SideBar/Bar";
 
 import Router from "../Router";
 import DialogHost from "../DialogHost";
@@ -277,7 +277,7 @@ class App extends Component {
                 user={user}
                 roles={roles}
                 bar={
-                  <UserBadge
+                  <Bar
                     performingAction={performingAction}
                     theme={theme}
                     user={user}

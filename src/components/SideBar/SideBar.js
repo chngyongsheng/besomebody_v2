@@ -1,8 +1,9 @@
 import React from 'react';
 import clsx from 'clsx';
 import { BrowserRouter, Switch, Redirect, Route , Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
-import UserBadge from "./UserBadge";
+import Bar from "../SideBar/Bar";
 
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { Drawer, CssBaseline, AppBar, Toolbar, List, Typography, Divider, IconButton, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
@@ -133,7 +134,9 @@ export default function SideBar() {
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
         </div>
-       
+         
+        
+                
         <Divider />
         <List>
           {['New Game', 'Load Game', 'Settings', 'Player Profile'].map((text, index) => (
@@ -164,3 +167,16 @@ export default function SideBar() {
     </div>
   );
 };
+
+
+
+SideBar.propTypes = {
+  // Properties
+  user: PropTypes.object,
+  roles: PropTypes.array.isRequired,
+  bar: PropTypes.element,
+
+  // Functions
+  openSnackbar: PropTypes.func.isRequired,
+};
+

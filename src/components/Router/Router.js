@@ -24,11 +24,13 @@ class Router extends Component {
         <Switch>
           
           <Route path="/" exact>
-            <HomePage user={user} openSnackbar={openSnackbar} />
+            <HomePage user={user} openSnackbar={openSnackbar} bar={bar} />
           </Route>
 
-          <Route path="/about" exact>          
-            About Page -> this is an admin page
+          <Route path="/login" exact>
+            {bar}            
+                  
+            Login Page 
           </Route>
 
           <Route path="/newgame" exact>
