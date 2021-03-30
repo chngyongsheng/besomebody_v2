@@ -28,13 +28,19 @@ class Router extends Component {
           </Route>
 
           <Route path="/about" exact>          
-            About Page
+            About Page -> this is an admin page
           </Route>
 
-          <Route path="/game" exact>
-            {bar}
-            {user ? <GamePage /> : <Redirect to="/" />}
+          <Route path="/newgame" exact>
+            
+            {user ? <GamePage subpage="CharacterChoice" /> : <Redirect to="/" />}
           </Route>
+
+          <Route path="/playgame" exact>
+            
+            {user ? <GamePage subpage = "NarrativeGame"/> : <Redirect to="/" />}
+          </Route>
+
 
           <Route path="/admin">
             {user && roles.includes("admin") ? (

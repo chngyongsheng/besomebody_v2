@@ -77,6 +77,7 @@ export default function SideBar() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
+
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -132,7 +133,7 @@ export default function SideBar() {
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
         </div>
-        
+       
         <Divider />
         <List>
           {['New Game', 'Load Game', 'Settings', 'Player Profile'].map((text, index) => (
@@ -148,7 +149,7 @@ export default function SideBar() {
             <ListItem button key={text}>
               <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
               <ListItemText primary={text} />
-            </ListItem>
+            </ListItem>            
           ))}
         </List>
       </Drawer>
@@ -162,226 +163,4 @@ export default function SideBar() {
       </main>
     </div>
   );
-}
-
-
-/* import React, { Component, createContext, useState  } from "react";
-
-import PropTypes from "prop-types";
-import { Link as RouterLink } from "react-router-dom";
-
-import { createMuiTheme, ThemeProvider, makeStyles, useTheme } from "@material-ui/core/styles";
-import MenuIcon from "@material-ui/icons/Menu";
-import SaveIcon from "@material-ui/icons/Save";
-import ExitToAppIcon from "@material-ui/icons/ExitToApp";
-import { blue, green } from "@material-ui/core/colors";
-
-
-
-import {
-  AppBar,
-  Avatar,
-  CssBaseline,
-  Box,
-  ButtonGroup,
-  Button,
-  IconButton,
-  Divider,
-  Drawer,
-  Hidden,
-  Menu,
-  MenuItem,
-  Link,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  ListItemAvatar,
-  Toolbar,
-  Typography,
-} from "@material-ui/core";
-
-import UserAvatar from "../UserAvatar";
-
-
-
-// our own material-ui menu
-
-const drawerWidth = 300;
-
-
-const outerTheme = createMuiTheme({
-  palette: {
-    primary: blue   
-  }
-});
- 
-const useStyles = makeStyles((theme) => ({
-
-  drawer: {
-    [theme.breakpoints.up("sm")]: {
-      width: drawerWidth,
-      flexShrink: 0
-    }
-  },
-  appBar: {
-    [theme.breakpoints.up("sm")]: {
-      width: `calc(100% - ${drawerWidth}px)`,
-      marginLeft: drawerWidth
-    }
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-    [theme.breakpoints.up("sm")]: {
-      display: "none"
-    }
-  },
-  // necessary for content to be below app bar
-  toolbar: theme.mixins.toolbar,
-  drawerPaper: {
-    width: drawerWidth
-  },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(3)
-  }
-}));
-
-function ResponsiveDrawer(props) {
-  
-
-
-  const { window } = props;
-  const classes = useStyles();
-  const theme = useTheme();
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
-
-  
-
-  const drawer = (
-    <div>
-      <div className={classes.toolbar} />
-      <Box display="flex" flexGrow={1}>
-            <Typography color="inherit" variant="h6">
-              <Link
-                color="inherit"
-                component={RouterLink}
-                to="/"
-                underline="none"
-              >
-                Be Somebody
-              </Link>
-            </Typography>
-          </Box>
-      <Divider />
-      <List>
-        <ListItemAvatar align="center">
-          <Avatar alt="Character: Nadid" src="/images/avatar/nadid.jpg" />
-        </ListItemAvatar>
-        <ListItemText primary="Character: Nadid" align="center"></ListItemText>
-        <ListItem>
-          <ListItemText primary="Current Status" />
-        </ListItem>
-        <ListItem button>
-          <ListItemText primary="Chapter 3: I love you?" />
-        </ListItem>
-        <ListItem button>
-          <ListItemText primary="Chapter 2: Finding friends" />
-        </ListItem>
-        <ListItem button>
-          <ListItemText primary="Chapter 1: Grades don't matter?" />
-        </ListItem>
-      </List>
-      <Divider />
-      <List component="nav">        
-        <ListItem button>
-          <ListItemIcon>
-            <SaveIcon />
-          </ListItemIcon>
-          <ListItemText primary="Save Progress" />
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon>
-            <ExitToAppIcon />
-          </ListItemIcon>
-          <ListItemText primary="Main Menu" />
-        </ListItem>
-      </List>
-    </div>
-  );
-
-  const container =
-    window !== undefined ? () => window().document.body : undefined;
-
-  return (
-    <ThemeProvider theme={outerTheme}>
-
-        <CssBaseline />
-        <AppBar position="fixed" color="primary" className={classes.appBar}>
-          <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              edge="start"
-              onClick={handleDrawerToggle}
-              className={classes.menuButton}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" noWrap>
-              Now playing: Nadid, Chapter 3
-            </Typography>
-          </Toolbar>
-        </AppBar>
-        <nav className={classes.drawer} aria-label="mailbox folders">
-          {
-          }
-          <Hidden smUp implementation="css">
-            <Drawer
-              container={container}
-              variant="temporary"
-              anchor={theme.direction === "rtl" ? "right" : "left"}
-              open={mobileOpen}
-              onClose={handleDrawerToggle}
-              classes={{
-                paper: classes.drawerPaper
-              }}
-              ModalProps={{
-                keepMounted: true // Better open performance on mobile.
-              }}
-            >
-              {drawer}
-            </Drawer>
-          </Hidden>
-          <Hidden xsDown implementation="css">
-            <Drawer
-              classes={{
-                paper: classes.drawerPaper
-              }}
-              variant="persistent"
-              open
-            >
-              {drawer}
-            </Drawer>
-          </Hidden>
-        </nav>
-
-    </ThemeProvider>
-  );
-}
-
-
-ResponsiveDrawer.propTypes = {
-  
-  window: PropTypes.func
 };
-
-export default ResponsiveDrawer;
-
-/*
-
-*/

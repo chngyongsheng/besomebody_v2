@@ -6,7 +6,7 @@ import { auth } from "../../firebase";
 
 import authentication from "../../services/authentication";
 import EmptyState from "../EmptyState";
-import Bar from "../SideBar";
+import SideBar from "../SideBar";
 import LandingPage from "../LandingPage";
 
 import { ReactComponent as CabinIllustration } from "../../illustrations/cabin.svg";
@@ -75,13 +75,8 @@ class HomePage extends Component {
       return (
         // logged in page
         <>
-          <Bar />
-          <EmptyState
-          image={<CabinIllustration />}
-          title="Home"
-          description="This is the logged in page, using an Empty State component. The Landing Page can edit it from HomePage.js."
-          />
-          
+          <SideBar />
+                     Logged IN
           <LandingPage />
           
         </>
@@ -91,18 +86,10 @@ class HomePage extends Component {
 
     return (
       <>
-        
-        <EmptyState
-        // logged out page
-        image={<InsertBlockIllustration />}
-        title="RMUIF"
-        description="This is the logged out page. The Landing Page can edit it from HomePage.js."
-        />
-        <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/about">About</Link></li>
-            <li><Link to="/game">New Game</Link></li>
-          </ul>
+        // logged out page 
+       Logged OUT
+        <LandingPage />
+          
       </>
     );
   }

@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { BrowserRouter, Switch, Redirect, Route } from "react-router-dom";
+import SideBar from "../SideBar";
+import CharacterChoice from "../CharacterChoice";
 
-import ResponsiveDrawer from "../SideBar/SideBar.js";
 
 class GamePage extends Component {
 
@@ -12,9 +13,16 @@ class GamePage extends Component {
             
             <>
                 
-                <div>
-                    The Game Character Menu will go here.If the user has already started a game the continue game option will be prominent.</div>
-                
+                <SideBar />
+                {(() => {
+                    switch (this.props.subpage) {
+                    case "CharacterChoice": return <CharacterChoice />;
+                    case "NarrativeGame": return "Narrative Game";
+                    default: return null;
+                    }
+                })}
+
+                {this.props.subpage}
             </>    
 
         );
