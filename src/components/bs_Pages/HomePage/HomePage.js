@@ -2,15 +2,15 @@ import { React,  Component } from "react";
 import PropTypes from "prop-types";
 import { withRouter, Link } from "react-router-dom";
 
-import { auth } from "../../firebase";
+import { auth } from "../../../firebase";
 
-import authentication from "../../services/authentication";
-import EmptyState from "../EmptyState";
-import SideBar from "../SideBar";
-import LandingPage from "../LandingPage";
+import authentication from "../../../services/authentication";
+import EmptyState from "../../EmptyState";
+import SideBar from "../../bs_Reusables/SideBar";
+import LandingPage from "../../LandingPage";
 
-import { ReactComponent as CabinIllustration } from "../../illustrations/cabin.svg";
-import { ReactComponent as InsertBlockIllustration } from "../../illustrations/insert-block.svg";
+import { ReactComponent as CabinIllustration } from "../../../illustrations/cabin.svg";
+import { ReactComponent as InsertBlockIllustration } from "../../../illustrations/insert-block.svg";
 
 class HomePage extends Component {
   signInWithEmailLink = () => {

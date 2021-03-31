@@ -18,7 +18,7 @@ import {
   Link,
 } from "@material-ui/core";
 
-import UserAvatar from "../UserAvatar";
+import UserAvatar from "../../UserAvatar";
 
 class Bar extends Component {
   constructor(props) {

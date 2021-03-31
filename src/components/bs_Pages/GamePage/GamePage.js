@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { BrowserRouter, Switch, Redirect, Route } from "react-router-dom";
-import SideBar from "../SideBar";
-import CharacterChoice from "../CharacterChoice";
+import SideBar from "../../bs_Reusables/SideBar";
+import CharacterChoice from "../../bs_Pages/CharacterChoice";
+
 
 
 class GamePage extends Component {
