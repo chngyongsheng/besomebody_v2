@@ -1,6 +1,7 @@
 # Better.sg Be Somebody Game
 
-// todo: enter project description
+To understand the purpose of this game, please go to https://besomebody.better.sg 
+
 ### Setup & Run (dev mode)
 1. npm install
 2. npm start
