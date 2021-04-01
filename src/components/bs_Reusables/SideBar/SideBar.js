@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import { BrowserRouter, Switch, Redirect, Route , Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-import Bar from "../SideBar/Bar";
+import UserAvatar from "../../UserAvatar";
 
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { Drawer, CssBaseline, AppBar, Toolbar, List, Typography, Divider, IconButton, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
@@ -73,11 +73,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SideBar() {
+export default function SideBar(props) {
   const classes = useStyles();
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
-
+  const [open, setOpen] = React.useState(false);  
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -86,6 +85,9 @@ export default function SideBar() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  console.log('SideBar');
+  console.log(props);
 
   return (
     <div className={classes.root}>
@@ -133,10 +135,11 @@ export default function SideBar() {
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
-        </div>
-         
+        </div>                
+
         
-                
+        <UserAvatar user={Object.assign(props.user, props.userData)} />
+
         <Divider />
         <List>
           {['New Game', 'Load Game', 'Settings', 'Player Profile'].map((text, index) => (
@@ -179,4 +182,3 @@ SideBar.propTypes = {
   // Functions
   openSnackbar: PropTypes.func.isRequired,
 };
-

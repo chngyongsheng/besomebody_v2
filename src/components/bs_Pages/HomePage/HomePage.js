@@ -13,8 +13,12 @@ import { ReactComponent as CabinIllustration } from "../../../illustrations/cabi
 import { ReactComponent as InsertBlockIllustration } from "../../../illustrations/insert-block.svg";
 
 class HomePage extends Component {
+  constructor(props) {
+    super(props);    
+  }
+
   signInWithEmailLink = () => {
-    const { user } = this.props;
+    const { user } = this.props;    
 
     if (user) {
       return;
@@ -69,13 +73,14 @@ class HomePage extends Component {
   };
 
   render() {
-    const { user } = this.props;
-
+    const { user , userData } = this.props;
+ 
     if (user) {
       return (
         // logged in page
         <>
-          <SideBar />
+          
+          <SideBar user={user} userData={userData}/>
                      Logged IN
           <LandingPage />
           

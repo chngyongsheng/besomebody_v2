@@ -7,14 +7,22 @@ import CharacterChoice from "../../bs_Pages/CharacterChoice";
 
 
 class GamePage extends Component {
-
+    constructor(props) {
+        super(props);
+        console.log('GamePage');
+        console.log(props);
+    }
+       
     render() {
+        const { user , userData } = this.props;
 
+        
         return (
             
             <>
                 
-                <SideBar />
+                <SideBar user={user} userData={userData}/>
+
                 {(() => {
                     switch (this.props.subpage) {
                     case "CharacterChoice": return <CharacterChoice />;

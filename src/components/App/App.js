@@ -12,10 +12,11 @@ import appearance from "../../services/appearance";
 
 import ErrorBoundary from "../ErrorBoundary";
 import LaunchScreen from "../LaunchScreen";
-import Bar from "../SideBar/Bar";
-
 import Router from "../Router";
 import DialogHost from "../DialogHost";
+
+import Bar from "../bs_Reusables/SideBar/Bar";
+
 
 const initialState = {
   ready: false,
@@ -275,6 +276,7 @@ class App extends Component {
             <>
               <Router
                 user={user}
+                userData={userData}
                 roles={roles}
                 bar={
                   <Bar

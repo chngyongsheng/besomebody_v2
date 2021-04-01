@@ -10,11 +10,13 @@ import NotFoundPage from "../NotFoundPage";
 
 import GamePage from "../bs_Pages/GamePage";
 import HomePage from "../bs_Pages/HomePage";
+import SideBar from "../bs_Reusables/SideBar";
+import Bar from "../bs_Reusables/SideBar/Bar";
 
 class Router extends Component {
   render() {
     // Properties
-    const { user, roles, bar } = this.props;
+    const { user, roles, bar, userData } = this.props;
 
     // Functions
     const { openSnackbar } = this.props;
@@ -24,24 +26,23 @@ class Router extends Component {
         
         <Switch>
           
-          <Route path="/" exact>
-            <HomePage user={user} openSnackbar={openSnackbar} bar={bar} />
+          <Route path="/" exact>      
+            <HomePage user={user} userData={userData} openSnackbar={openSnackbar}  />
           </Route>
 
           <Route path="/login" exact>
-            {bar}            
-                  
+            {bar}                        
             Login Page 
           </Route>
 
           <Route path="/newgame" exact>
             
-            {user ? <GamePage subpage="CharacterChoice" /> : <Redirect to="/" />}
+            {user ? <GamePage subpage="CharacterChoice" user={user} userData={userData} /> : <Redirect to="/" />}
           </Route>
 
           <Route path="/playgame" exact>
             
-            {user ? <GamePage subpage = "NarrativeGame"/> : <Redirect to="/" />}
+            {user ? <GamePage subpage = "NarrativeGame" user={user} userData={userData} /> : <Redirect to="/" />}
           </Route>
 
 
@@ -71,6 +72,7 @@ class Router extends Component {
 Router.propTypes = {
   // Properties
   user: PropTypes.object,
+  userData: PropTypes.object,
   roles: PropTypes.array.isRequired,
   bar: PropTypes.element,
 

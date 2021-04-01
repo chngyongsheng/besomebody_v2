@@ -87,19 +87,8 @@ class Bar extends Component {
     return (
       
         < >
-          <Box display="flex" flexGrow={1}>
-            <Typography color="inherit" variant="h6">
-              <Link
-                color="inherit"
-                component={RouterLink}
-                to="/"
-                underline="none"
-              >
-                {process.env.REACT_APP_TITLE}
-              </Link>
-            </Typography>
-          </Box>
-
+         
+         
           {user && (
             <>
               {roles.includes("admin") && (
