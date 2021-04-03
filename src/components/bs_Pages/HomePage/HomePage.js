@@ -78,12 +78,10 @@ class HomePage extends Component {
     if (user) {
       return (
         // logged in page
-        <>
-          
-          <SideBar user={user} userData={userData}/>
-                     Logged IN
+        <>          
+          <SideBar user={user} userData={userData}/>          
           <LandingPage />
-          
+          Logged IN
         </>
         
       );

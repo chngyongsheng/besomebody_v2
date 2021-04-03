@@ -8,30 +8,30 @@ import CharacterChoice from "../../bs_Pages/CharacterChoice";
 
 class GamePage extends Component {
     constructor(props) {
-        super(props);
-        console.log('GamePage');
-        console.log(props);
+        super(props);      
     }
+
+    changePage(param) {
+        switch (param) {
+            case 'CharacterChoice':
+                return <CharacterChoice />;
+            case 'NarrativeGame':
+                return "Narrative Game";                
+        }
+    }
+
        
     render() {
-        const { user , userData } = this.props;
-
+        const { user , userData, subpage } = this.props;
         
         return (
             
             <>
                 
                 <SideBar user={user} userData={userData}/>
+                {this.changePage(this.props.subpage)}
 
-                {(() => {
-                    switch (this.props.subpage) {
-                    case "CharacterChoice": return <CharacterChoice />;
-                    case "NarrativeGame": return "Narrative Game";
-                    default: return null;
-                    }
-                })}
-
-                {this.props.subpage}
+               
             </>    
 
         );
@@ -42,4 +42,3 @@ class GamePage extends Component {
 
 export default GamePage;
 
-//<ResponsiveDrawer />

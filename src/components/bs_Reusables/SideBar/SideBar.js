@@ -86,8 +86,6 @@ export default function SideBar(props) {
     setOpen(false);
   };
 
-  console.log('SideBar');
-  console.log(props);
 
   return (
     <div className={classes.root}>
